@@ -121,12 +121,12 @@
           <span class="timer-unit">Seconds</span>
         </div>
       </div>
-      <p class="timer-heartbeat">💚 Every second with you is a blessing 💚</p>
+      <p class="timer-heartbeat">💚 Every second with you is the best 💚</p>
     </section>
 
     <!-- THREE CARDS SECTION -->
     <section class="cards-section" id="cards-section">
-      <h2 class="cards-heading">Explore Your Surprises</h2>
+      <h2 class="cards-heading">Minigames for you 🥰</h2>
       <div class="cards-grid">
 
         <div class="flip-card" id="card-spin" data-card="spin">
@@ -134,7 +134,7 @@
             <div class="flip-card-front">
               <div class="card-icon">🎁</div>
               <h3>Spin for a Reward ❤️</h3>
-              <p>Try your luck and win something sweet</p>
+              <p>Try your luck and win 😳</p>
               <span class="card-tap-hint">Tap to open</span>
             </div>
           </div>
@@ -146,6 +146,17 @@
               <div class="card-icon">💘</div>
               <h3>Love Compatibility Test</h3>
               <p>Find out how compatible we really are</p>
+              <span class="card-tap-hint">Tap to open</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card" id="card-fishing" data-card="fishing">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="card-icon">🎣</div>
+              <h3>Stardew Fishing</h3>
+              <p>Reel in romantic secrets!</p>
               <span class="card-tap-hint">Tap to open</span>
             </div>
           </div>
@@ -167,7 +178,7 @@
 
     <!-- WISHING TREE SECTION -->
     <section class="wishing-tree-section" id="wishing-tree-section">
-      <h2 class="tree-heading">Our Wishing Tree 🌳</h2>
+      <h2 class="tree-heading">The Tree of Secrets 🌳</h2>
       <p class="wishing-tree-subtitle">Tap a note to read what's written inside…</p>
       <div class="wishing-tree-container" id="wishing-tree-container">
         <img src="assets/wishing-tree.png" alt="Wishing tree" class="wishing-tree-img" draggable="false" />
@@ -247,6 +258,95 @@
         </div>
       </div>
 
+      <div class="modal-inner hidden" id="modal-fishing">
+        <h2 class="modal-title">Stardew Fishing 🎣</h2>
+
+        <!-- Fishing Game View Page -->
+        <div id="fishing-game-view">
+
+          <div class="fishing-game-layout">
+            <!-- Left Column: Canvas -->
+            <div class="fishing-col-left">
+              <canvas id="fishing-canvas" width="70" height="320"></canvas>
+            </div>
+
+            <!-- Middle Column: Square Pixel Art Lake + Hook Canvas + Power Bar below it -->
+            <div class="fishing-col-middle-wrapper">
+              <div class="fishing-col-middle">
+                <img src="assets/fishing_lake.png" alt="Fishing Lake" class="fishing-graphic-img" />
+                <canvas id="lake-anim-canvas" width="300" height="300"></canvas>
+                <button class="btn-backpack" id="btn-backpack" aria-label="Toggle Inventory">🎒</button>
+              </div>
+              <div class="fishing-power-wrap" id="fishing-power-wrap">
+                <div class="fishing-power-bar" id="fishing-power-bar"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Controls Bar below columns -->
+          <div class="fishing-controls-bar">
+            <button class="btn-spin" id="btn-start-fishing">HOLD TO CAST</button>
+          </div>
+        </div>
+
+        <!-- Inventory View Page -->
+        <div id="fishing-inventory-view" class="hidden">
+          <div class="fishing-inventory-title">Inventory: <span id="fishing-counter-val">0/9</span></div>
+          <div class="fishing-gallery" id="fishing-gallery">
+            <div class="fishing-slot" data-index="1">
+              <div class="slot-inner">?</div>
+            </div>
+            <div class="fishing-slot" data-index="2">
+              <div class="slot-inner">?</div>
+            </div>
+            <div class="fishing-slot" data-index="3">
+              <div class="slot-inner">?</div>
+            </div>
+            <div class="fishing-slot" data-index="4">
+              <div class="slot-inner">?</div>
+            </div>
+            <div class="fishing-slot" data-index="5">
+              <div class="slot-inner">?</div>
+            </div>
+            <div class="fishing-slot" data-index="6">
+              <div class="slot-inner">?</div>
+            </div>
+            <div class="fishing-slot" data-index="7">
+              <div class="slot-inner">?</div>
+            </div>
+            <div class="fishing-slot" data-index="8">
+              <div class="slot-inner">?</div>
+            </div>
+            <div class="fishing-slot" data-index="9">
+              <div class="slot-inner">?</div>
+            </div>
+          </div>
+          <div class="fishing-controls-bar">
+            <button class="btn-spin" id="btn-back-to-lake">BACK TO LAKE</button>
+          </div>
+        </div>
+
+        <!-- Caught Card Popup Overlay -->
+        <div class="fishing-reveal-overlay hidden" id="fishing-reveal-overlay">
+          <div class="reveal-card-inner">
+            <button class="wish-popup-close" id="btn-reveal-close">&times;</button>
+            <h3 id="fishing-reveal-title">You Caught a Secret Card! 🎉</h3>
+            <div class="fishing-prize-card">
+              <img id="fishing-reveal-prize-img" src="" alt="Prize card" />
+            </div>
+            <p id="fishing-reveal-text"></p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- IMAGE EXPANSION PREVIEWER -->
+  <div class="image-preview-overlay hidden" id="image-preview-overlay">
+    <div class="preview-inner">
+      <button class="wish-popup-close" id="btn-preview-close" aria-label="Close Preview">&times;</button>
+      <img id="image-preview-img" src="" alt="Expanded card preview" />
     </div>
   </div>
 
