@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Happy 4th Anniversary – A romantic interactive gift experience" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Happy 4th Anniversary ❤️</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&family=Dancing+Script:wght@400;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- PARTICLE BACKGROUND CANVAS -->
+  <canvas id="particle-canvas"></canvas>
+
+  <!-- FIREWORKS CANVAS (overlay) -->
+  <canvas id="fireworks-canvas"></canvas>
+
+  <!-- CONFETTI CANVAS (overlay) -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <!-- COMBINATION LOCK -->
+  <section id="lock-section" class="lock-section">
+    <div class="lock-inner">
+      <h1 class="lock-title">Enter Our Secret Code</h1>
+      <p class="lock-subtitle">Unlock thy surprise...</p>
+
+      <div class="lock-graphic-container">
+        <div class="lock-shackle" id="lock-shackle">
+          <img src="assets/shackle.png" alt="Shackle" class="shackle-img" draggable="false" />
+        </div>
+        <div class="lock-body">
+          <div class="lock-body-face">
+            <div class="combo-lock" id="combo-lock">
+              <div class="digit-wheel" data-index="0">
+                <button class="btn-up" aria-label="Increase">▲</button>
+                <div class="digit-display">0</div>
+                <button class="btn-down" aria-label="Decrease">▼</button>
+              </div>
+              <div class="digit-wheel" data-index="1">
+                <button class="btn-up" aria-label="Increase">▲</button>
+                <div class="digit-display">0</div>
+                <button class="btn-down" aria-label="Decrease">▼</button>
+              </div>
+              <div class="digit-wheel" data-index="2">
+                <button class="btn-up" aria-label="Increase">▲</button>
+                <div class="digit-display">0</div>
+                <button class="btn-down" aria-label="Decrease">▼</button>
+              </div>
+              <div class="digit-wheel" data-index="3">
+                <button class="btn-up" aria-label="Increase">▲</button>
+                <div class="digit-display">0</div>
+                <button class="btn-down" aria-label="Decrease">▼</button>
+              </div>
+              <div class="digit-wheel" data-index="4">
+                <button class="btn-up" aria-label="Increase">▲</button>
+                <div class="digit-display">0</div>
+                <button class="btn-down" aria-label="Decrease">▼</button>
+              </div>
+              <div class="digit-wheel" data-index="5">
+                <button class="btn-up" aria-label="Increase">▲</button>
+                <div class="digit-display">0</div>
+                <button class="btn-down" aria-label="Decrease">▼</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p class="lock-error hidden" id="lock-error">Wrong code! Try again.</p>
+    </div>
+  </section>
+
+
+
+  <!-- ANNIVERSARY REVEAL -->
+  <section id="reveal-section" class="reveal-section hidden">
+    <h1 class="reveal-text" id="reveal-text">Happy 4th Anniversary!</h1>
+  </section>
+
+  <!-- MAIN CONTENT -->
+  <main id="main-content" class="main-content hidden">
+
+    <header class="site-header" id="site-header">
+      <h1 class="header-title">Happy 4th Anniversary! 💚</h1>
+    </header>
+
+    <!-- TIMER HERO SECTION -->
+    <section class="timer-section" id="timer-section">
+      <p class="timer-label">Together since <span class="highlight">June 12, 2022</span></p>
+      <div class="timer-grid" id="timer-grid">
+        <div class="timer-card">
+          <span class="timer-value" id="timer-years">0</span>
+          <span class="timer-unit">Years</span>
+        </div>
+        <div class="timer-card">
+          <span class="timer-value" id="timer-months">0</span>
+          <span class="timer-unit">Months</span>
+        </div>
+        <div class="timer-card">
+          <span class="timer-value" id="timer-days">0</span>
+          <span class="timer-unit">Days</span>
+        </div>
+        <div class="timer-card">
+          <span class="timer-value" id="timer-hours">0</span>
+          <span class="timer-unit">Hours</span>
+        </div>
+        <div class="timer-card">
+          <span class="timer-value" id="timer-minutes">0</span>
+          <span class="timer-unit">Minutes</span>
+        </div>
+        <div class="timer-card">
+          <span class="timer-value" id="timer-seconds">0</span>
+          <span class="timer-unit">Seconds</span>
+        </div>
+      </div>
+      <p class="timer-heartbeat">💚 Every second with you is a blessing 💚</p>
+    </section>
+
+    <!-- THREE CARDS SECTION -->
+    <section class="cards-section" id="cards-section">
+      <h2 class="cards-heading">Explore Your Surprises</h2>
+      <div class="cards-grid">
+
+        <div class="flip-card" id="card-spin" data-card="spin">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="card-icon">🎁</div>
+              <h3>Spin for a Reward ❤️</h3>
+              <p>Try your luck and win something sweet</p>
+              <span class="card-tap-hint">Tap to open</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip-card" id="card-compat" data-card="compat">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <div class="card-icon">💘</div>
+              <h3>Love Compatibility Test</h3>
+              <p>Find out how compatible we really are</p>
+              <span class="card-tap-hint">Tap to open</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SCRATCH CARD -->
+    <section id="scratch-section" class="scratch-section">
+      <div class="scratch-inner">
+        <h1 class="scratch-title">Us together across<br />these great 4 years</h1>
+        <p class="scratch-subtitle">Scratch all the cards to reveal memories ✨</p>
+        <div class="scratch-grid" id="scratch-grid">
+        </div>
+        <p class="scratch-hint">Use your finger or mouse to scratch!</p>
+      </div>
+    </section>
+
+    <!-- WISHING TREE SECTION -->
+    <section class="wishing-tree-section" id="wishing-tree-section">
+      <h2 class="tree-heading">Our Wishing Tree 🌳</h2>
+      <p class="wishing-tree-subtitle">Tap a note to read what's written inside…</p>
+      <div class="wishing-tree-container" id="wishing-tree-container">
+        <img src="assets/wishing-tree.png" alt="Wishing tree" class="wishing-tree-img" draggable="false" />
+
+        <button class="wish-note" id="wish-note-0" data-note="0" style="top: 25%; left: 32%;" aria-label="Open note">
+          <span class="wish-note-icon">💌</span>
+          <span class="wish-note-label">Confession Date</span>
+          <span class="wish-note-string"></span>
+        </button>
+
+        <button class="wish-note" id="wish-note-1" data-note="1" style="top: 20%; right: 32%;" aria-label="Open note">
+          <span class="wish-note-icon">🌹</span>
+          <span class="wish-note-label">Our Real Start</span>
+          <span class="wish-note-string"></span>
+        </button>
+
+        <button class="wish-note" id="wish-note-2" data-note="2" style="top: 48%; left: 22%;" aria-label="Open note">
+          <span class="wish-note-icon">✨</span>
+          <span class="wish-note-label">Our First Kiss</span>
+          <span class="wish-note-string"></span>
+        </button>
+
+        <button class="wish-note" id="wish-note-3" data-note="3" style="top: 44%; right: 22%;" aria-label="Open note">
+          <span class="wish-note-icon">💚</span>
+          <span class="wish-note-label">First "I Love You"</span>
+          <span class="wish-note-string"></span>
+        </button>
+      </div>
+
+      <div class="wish-popup hidden" id="wish-popup">
+        <div class="wish-popup-card">
+          <button class="wish-popup-close" id="wish-popup-close" aria-label="Close note">&times;</button>
+          <span class="wish-popup-icon" id="wish-popup-icon"></span>
+          <h3 class="wish-popup-title" id="wish-popup-title"></h3>
+          <p class="wish-popup-text" id="wish-popup-text"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== -->
+    <!-- ============================== -->
+    <footer class="site-footer">
+      <p>Made with 💚 for the love of my life</p>
+      <p class="footer-small">June 12, 2022 – Forever</p>
+    </footer>
+  </main>
+
+  <!-- MODAL OVERLAY FOR EXPANDED CARDS -->
+  <div class="modal-overlay hidden" id="modal-overlay">
+    <div class="modal-content" id="modal-content">
+      <button class="modal-close" id="modal-close" aria-label="Close">&times;</button>
+
+      <div class="modal-inner hidden" id="modal-spin">
+        <h2 class="modal-title">Spin for a Reward ❤️</h2>
+        <div class="wheel-container">
+          <div class="wheel-pointer">▼</div>
+          <canvas id="spin-wheel-canvas" width="400" height="400"></canvas>
+        </div>
+        <button class="btn-spin" id="btn-spin">SPIN!</button>
+        <div class="spin-result hidden" id="spin-result">
+          <p>You won:</p>
+          <h3 id="spin-result-text"></h3>
+          <button class="btn-play-again" id="btn-play-again">Play Again</button>
+        </div>
+      </div>
+
+      <div class="modal-inner hidden" id="modal-compat">
+        <h2 class="modal-title">Love Compatibility Test 💘</h2>
+        <p class="compat-desc">Enter a name to check our compatibility…</p>
+        <div class="compat-input-group">
+          <input type="text" id="compat-input" placeholder="Enter first name…" autocomplete="off" />
+          <button class="btn-compat" id="btn-compat">Calculate</button>
+        </div>
+        <div class="compat-result hidden" id="compat-result">
+          <div class="compat-percentage" id="compat-percentage">0%</div>
+          <p class="compat-message" id="compat-message"></p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
