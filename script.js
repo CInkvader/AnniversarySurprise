@@ -1636,16 +1636,16 @@
     launchConfetti(50);
 
     if (currentCount >= 9 && !originallyFull) {
-      fishingRevealText.textContent = `Wonderful! You caught Card #${prizeIdx}! You have collected all 9 secret cards! 💚🎉`;
+      fishingRevealText.textContent = `FINALLY! You caught Card #${prizeIdx}! You collected all 9 secret cards! 💚🎉`;
       setTimeout(() => {
         launchFireworks(8);
         launchConfetti(120);
         spawnFloatingHearts();
       }, 500);
     } else if (currentCount >= 9) {
-      fishingRevealText.textContent = `You caught Card #${prizeIdx} again! (Total collected: 9/9)`;
+      fishingRevealText.textContent = `Haha! You caught Card #${prizeIdx} again! (Total collected: 9/9)`;
     } else {
-      fishingRevealText.textContent = `Nice job! You caught Card #${prizeIdx}! (${currentCount}/9 collected)`;
+      fishingRevealText.textContent = `Wow so pro! You caught Card #${prizeIdx}! (${currentCount}/9 collected)`;
     }
 
     const banner = $('#fishing-noti-banner');
