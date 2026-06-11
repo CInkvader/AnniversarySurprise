@@ -56,6 +56,10 @@ html {
   -webkit-tap-highlight-color: transparent;
 }
 
+img {
+  pointer-events: none;
+}
+
 body {
   font-family: var(--font-body);
   background: linear-gradient(160deg, var(--green-50) 0%, var(--beige-50) 30%, var(--pink-100) 60%, var(--green-100) 100%);
